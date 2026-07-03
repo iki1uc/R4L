@@ -1,1 +1,44 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>R4L – Abgang + Echo</title>
+    <style>
+        body { background:#111; color:#0f0; font-family: monospace; padding:20px; }
+        h1 { color:#0f0; }
+        pre { background:#000; padding:10px; border:1px solid #0f0; }
+    </style>
+</head>
+<body>
+
+<h1>R4L – Abgang + Echo</h1>
+<p>Dies ist die direkte R4L-Demo für RAWATOR.</p>
+
+<pre id="out"></pre>
+
+<script type="module">
+    import { R4L } from "./R4L.js";
+
+    const out = document.getElementById("out");
+
+    function runR4L(role, text) {
+        const pxOut = { role, text };
+        const result = R4L.run(pxOut);
+
+        out.innerText += 
+            "INPUT:\n" +
+            "  Rolle: " + role + "\n" +
+            "  Text:  " + text + "\n\n" +
+            "R4L OUTPUT:\n" +
+            JSON.stringify(result, null, 2) +
+            "\n\n----------------------\n\n";
+    }
+
+    // Demo-Beispiele
+    runR4L(1, "Sprecher 1 verlässt den Kanal.");
+    runR4L(1, "Ich gebe weiter.");
+</script>
+
+</body>
+</html>
 
